@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
 from authh import views
+from forum import urls
 
 urlpatterns = [
     path('',views.home,name='home'),
@@ -10,6 +11,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path(r'^oauth/', include('social_django.urls', namespace='social')),
 
+    #For including urls in forum/urls.py
+    path('', include('forum.urls')),
 
     path('admin/', admin.site.urls),
 ]
